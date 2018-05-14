@@ -109,7 +109,7 @@
         self->audioQueueBuffers[i]->mAudioDataByteSize = (unsigned int)len;
         memcpy(self->audioQueueBuffers[i]->mAudioData, bytes, len);
         free(bytes);
-        AudioQueueEnqueueBuffer(self->audioQueue, audioQueueBuffers[i], 0, NULL);//将buffer插入AudioQueue中
+        AudioQueueEnqueueBuffer(self->audioQueue, self->audioQueueBuffers[i], 0, NULL);//将buffer插入AudioQueue中
         [self->sysnLock unlock];
     });
 }
